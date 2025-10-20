@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+<head>
+  <meta charset="UTF-8">
+  <title>Crear cuenta</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {background: #f0f2f5; font-family: Arial, sans-serif;}
+    .card {max-width: 400px; margin: 40px auto; border-radius: 10px;}
+    .btn-success {background: #46c22d; border: none;}
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="card shadow p-4">
+      <h3 class="text-center">Crear cuenta nueva</h3>
+      <p class="text-center text-muted">Es rapido y facil</p>
+      <hr>
+
+      <form action="{{ url_for('inicio') }}" method="get">
+        <div class="row">
+          <div class="col-6 mb-2"><input type="text" class="form-control" placeholder="Nombre"></div>
+          <div class="col-6 mb-2"><input type="text" class="form-control" placeholder="Apellido"></div>
+        </div>
+
+        <div class="mb-2"><input type="email" class="form-control" placeholder="Correo o celular"></div>
+        <div class="mb-2"><input type="password" class="form-control" placeholder="Contrasena nueva"></div>
+
+        <div class="row mb-2">
+          <div class="col-4">
+            <select class="form-select">
+              <option>Dia</option>
+              {% for i in range(1,32) %}<option>{{ i }}</option>{% endfor %}
+            </select>
+          </div>
+          <div class="col-4">
+            <select class="form-select">
+              <option>Mes</option>
+              <option>Enero</option><option>Febrero</option><option>Marzo</option><option>Abril</option>
+              <option>Mayo</option><option>Junio</option><option>Julio</option><option>Agosto</option>
+              <option>Septiembre</option><option>Octubre</option><option>Noviembre</option><option>Diciembre</option>
+            </select>
+          </div>
+          <div class="col-4">
+            <select class="form-select">
+              <option>Año</option>
+              {% for a in range(1980,2025) %}<option>{{ a }}</option>{% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Genero</label>
+          <select class="form-select">
+            <option selected disabled>Selecciona tu genero</option>
+            <option>Mujer</option>
+            <option>Hombre</option>
+            <option>Optimus Prime</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-success">Registrarte</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
